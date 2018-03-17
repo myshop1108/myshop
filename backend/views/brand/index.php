@@ -8,6 +8,7 @@
         <th>状态</th>
         <th>简介</th>
         <th>图像</th>
+        <th>操作</th>
     </tr>
 <?php foreach ($brands as $brand):?>
         <td><?=$brand->id?></td>
@@ -15,12 +16,11 @@
         <td><?=$brand->sort?></td>
         <td><?=$brand->status?></td>
         <td><?=$brand->intro?></td>
-    <td><?=\yii\bootstrap\Html::img("/".$brand->logo,['height'=>50])?>
-
-
-
-
-        <td>
+    <td><?php
+        $imgPath=strpos($brand->logo,"ttp://")?$brand->logo:"/".$brand->logo;
+        echo \yii\bootstrap\Html::img($brand->logo,['height'=>50]);
+        ?></td>
+    <td>
             <a href="<?=\yii\helpers\Url::to(['edit','id'=>$brand->id])?>" class="btn btn-success">编辑</a>
             <a href="<?=\yii\helpers\Url::to(['del','id'=>$brand->id])?>" class="btn btn-danger">删除</a>
 
