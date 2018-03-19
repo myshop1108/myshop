@@ -98,10 +98,6 @@ class BrandController extends \yii\web\Controller
            //qiniu上传
            break;
        }
-
-
-
-
         //通过name值得到文件上传对象
         $fileObj=UploadedFile::getInstanceByName('file');
 //        var_dump($fileObj);exit;

@@ -1,6 +1,7 @@
 <?php
 
 use leandrogehlen\treegrid\TreeGrid;?>
+<h1>商品分类列表</h1>
 <a href="<?=\yii\helpers\Url::to(['add'])?>" class="btn btn-info">添加</a>
 <table class="table">
 <tr></tr>
