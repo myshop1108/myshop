@@ -40,23 +40,6 @@
                         'items' => [
                             ['label' => '商品列表', 'icon' => 'file-code-o', 'url' => ['/goods/index'],],
                             ['label' => '添加商品', 'icon' => 'dashboard', 'url' => ['/goods/add'],],
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
                         ],
                     ],
                     [
@@ -66,23 +49,6 @@
                         'items' => [
                             ['label' => '分类管理列表', 'icon' => 'file-code-o', 'url' => ['/categorry/index'],],
                             ['label' => '添加分类', 'icon' => 'dashboard', 'url' => ['/categorry/add'],],
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
                         ],
                     ],
                     [
@@ -92,23 +58,6 @@
                         'items' => [
                             ['label' => '文章管理列表', 'icon' => 'file-code-o', 'url' => ['/category/index'],],
                             ['label' => '添加文章分类', 'icon' => 'dashboard', 'url' => ['/category/add'],],
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
                         ],
                     ],
                     [
@@ -118,23 +67,6 @@
                         'items' => [
                             ['label' => '文章列表', 'icon' => 'file-code-o', 'url' => ['/articl/index'],],
                             ['label' => '添加文章', 'icon' => 'dashboard', 'url' => ['/articl/add'],],
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
                         ],
                     ],
                     [
@@ -144,23 +76,6 @@
                         'items' => [
                             ['label' => '品牌列表', 'icon' => 'file-code-o', 'url' => ['/brand/index'],],
                             ['label' => '添加品牌', 'icon' => 'dashboard', 'url' => ['/brand/add'],],
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
                         ],
                     ],
                     [
@@ -170,23 +85,7 @@
                         'items' => [
                             ['label' => '管理员列表', 'icon' => 'file-code-o', 'url' => ['/admin/index'],],
                             ['label' => '管理员注册', 'icon' => 'dashboard', 'url' => ['/admin/add'],],
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
+
                         ],
                     ],
                 ],
