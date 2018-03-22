@@ -20,7 +20,7 @@ use yii\db\ActiveRecord;
  */
 class Articl extends \yii\db\ActiveRecord
 {
-    public static $post=[1=>'上线',2=>'下线'];
+    public static $get=[1=>'上线',2=>'下线'];
     public function behaviors()
     {
         return [

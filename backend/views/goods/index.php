@@ -2,7 +2,24 @@
 
 use leandrogehlen\treegrid\TreeGrid;?>
 <h1>商品表</h1>
-<a href="<?=\yii\helpers\Url::to(['add'])?>" class="btn btn-info">添加</a>
+<form class="form-inline pull-right">
+    <select class="form-control" name="status">
+        <option>请选择状态</option>
+        <option value="1" <?=Yii::$app->request->get('status')==="1"?"selected":""?>>禁用</option>
+        <option value="2" <?=Yii::$app->request->get('status')==="2"?"selected":""?>>激活</option>
+    </select>
+    <div class="form-group">
+        <input type="text" class="form-control" id="minPrice" placeholder="最低价" name="minPrice" size="5" value="<?=Yii::$app->request->get('minPrice')?>">
+    </div>
+    —
+    <div class="form-group">
+        <input type="text" class="form-control" id="maxPrice" placeholder="最高价" name="maxPrice" size="5" value="<?=Yii::$app->request->get('maxPrice')?>">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" id="keyword" placeholder="名称或货号" name="keyword" size="8" value="<?=Yii::$app->request->get('keyword')?>">
+    </div>
+    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+</form>
 <table class="table">
 
     <tr>
@@ -45,3 +62,8 @@ use leandrogehlen\treegrid\TreeGrid;?>
     </tr>
 <?php endforeach; ?>
 </table>
+<?=\yii\widgets\LinkPager::widget([
+    'pagination' => $page,
+
+])?>
+

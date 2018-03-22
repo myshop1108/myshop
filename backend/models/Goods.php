@@ -21,10 +21,12 @@ use yii\db\ActiveRecord;
  * @property int $status 状态 
  * @property int $sort 排 序
  * @property int $inputtime 录入时间
+ *  @property int $images 录入时间
  */
 class Goods extends \yii\db\ActiveRecord
 {
-    public static $get=[1=>'上线',2=>'下线',3=>'未知'];
+    public $images;
+    public static $get=[1=>'禁用',2=>'激活'];
     public function behaviors()
     {
         return [
@@ -41,7 +43,7 @@ class Goods extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'goods_category_id','goods_category_id', 'brand_id', 'stock', 'status', 'sort','logo'], 'required'],
+            [['name', 'goods_category_id','goods_category_id', 'brand_id', 'stock', 'status', 'sort','logo','images'], 'required'],
             [['market_price','shop_price'],'number']
         ];
     }
