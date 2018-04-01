@@ -9,6 +9,7 @@
 namespace backend\controllers;
 
 
+use backend\filters\RbacFilter;
 use backend\models\Brand;
 use backend\models\Categorry;
 use backend\models\Goods;
@@ -20,11 +21,15 @@ use yii\web\Controller;
 
 class GoodsController extends Controller
 {
+
     public function actions()
     {
         return [
             'upload' => [
                 'class' => 'kucha\ueditor\UEditorAction',
+                'config' => [
+                    "imageUrlPrefix"  => "http://www.admin.com",//图片访问路径前缀
+            ],
             ]
         ];
     }

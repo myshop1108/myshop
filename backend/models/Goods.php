@@ -70,4 +70,12 @@ class Goods extends \yii\db\ActiveRecord
             'inputtime' => '录入时间',
         ];
     }
+    //一对一关系
+    public function getIntro(){
+        return $this->hasOne(GoodsIntro::className(),['goods_id'=>'id']);
+    }
+    //得到商品一对多
+    public function getImgs(){
+        return $this->hasMany(GoodsGallery::className(),['goods_id'=>'id']);
+    }
 }

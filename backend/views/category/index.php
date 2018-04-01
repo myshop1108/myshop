@@ -1,4 +1,4 @@
-<a href="<?=\yii\helpers\Url::to(['add'])?>" class="btn btn-info">添加</a>
+
 <table class="table">
 
     <tr>

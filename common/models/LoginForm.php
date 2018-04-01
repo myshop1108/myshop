@@ -40,11 +40,15 @@ class LoginForm extends Model
      */
     public function validatePassword($attribute, $params)
     {
-        if (!$this->hasErrors()) {
-            $user = $this->getUser();
-            if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect username or password.');
-            }
+//        if (!$this->hasErrors()) {
+//            $user = $this->getUser();
+//            if (!$user || !$user->validatePassword($this->password)) {
+//                $this->addError($attribute, 'Incorrect username or password.');
+//            }
+//        }
+        $codeOld=\Yii::$app->session->get("tel_".$this->mobile);
+        if ($this->code!=$codeOld){
+            $this->addError('captcha','验证码错误');
         }
     }
 
