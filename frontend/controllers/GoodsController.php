@@ -25,6 +25,10 @@ class GoodsController extends \yii\web\Controller
     }
     //添加购物车
     public function actionAddCart($id,$amount){
+        //判断当前商品是否存在
+        if (Goods::findOne($id)===null) {
+            return $this->redirect(['index/index']);
+        }
         if(\Yii::$app->user->isGuest){
             //未登录COOKIE
             //创建设置cookie对象
