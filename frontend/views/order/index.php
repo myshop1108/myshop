@@ -207,16 +207,16 @@ include Yii::getAlias('@app')."/views/common/nav.php";
     //监听配送方式改变
     $(function () {
         //监听配送方式改变
-        $("input[name='delivery']").change(function () {
+        $("input[name='delivery_id']").change(function () {
             //得到当前运费
             var price=$(this).parent().next().children().text();
-            console.log(price);
+
             //更改运费 console.log(price);
             $("#price").text(price);
             //更改总价
             $(".all_price").text((parseFloat(price)+parseFloat($("#goods_price").text())).toFixed(2))
-
-        })
+            console.log(price);
+        });
         //提交订单
         $("#sub_btn").click(function () {
 //            console.log(111111111);
