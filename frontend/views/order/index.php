@@ -222,7 +222,14 @@ include Yii::getAlias('@app')."/views/common/nav.php";
 //            console.log(111111111);
             //提交数据
             $.post('/order/index',$("form").serialize(),function (data) {
-                window.location.href="/order/list";
+                if(data.status==1){
+                    window.location.href="/order/list?id="+data.member_id;
+                    console.log(data.msg)
+                }
+                if(data.status==0){
+                    alert(data.msg)
+                }
+//
             },'json');
         })
     });
