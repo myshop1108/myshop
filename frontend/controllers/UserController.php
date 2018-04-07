@@ -13,7 +13,7 @@ use yii\helpers\Json;
 
 class UserController extends \yii\web\Controller
 {
-//    public $enableCsrfValidational=false;
+    public $enableCsrfValidational=false;
     public $layout=false;
     public function actions()
     {
