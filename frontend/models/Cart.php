@@ -35,3 +35,4 @@ class Cart extends \yii\db\ActiveRecord
         ];
     }
 }
+
