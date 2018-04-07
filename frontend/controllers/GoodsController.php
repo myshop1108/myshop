@@ -150,7 +150,7 @@ class GoodsController extends \yii\web\Controller
            ]);
         }else{
             //登录状态下的删除i
-            $cate=Cart::find()->where(['goods_id'=>$id,'member_id'=>\Yii::$app->user->id])->one()->delete();
+            $cate=Cart::find()->where(['goods_id'=>$id,'user_id'=>\Yii::$app->user->id])->one()->delete();
             if($cate){
                 return \yii\helpers\Json::encode([
                     'status'=>1,
