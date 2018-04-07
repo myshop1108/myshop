@@ -7,7 +7,6 @@ namespace frontend\controllers;
 
 
 use frontend\components\ShopCart;
-use frontend\models\Cart;
 use frontend\models\User;
 use Mrgoon\AliSms\AliSms;
 use yii\helpers\Json;
@@ -103,27 +102,27 @@ class UserController extends \yii\web\Controller
                         //用户登录
                         \Yii::$app->user->login($user,$model->rememberMe?3600**24*7:0);
                         //同步本地COOKIE中物购车到数据库中去
-//                        (new ShopCart())->dbSyn()->flush()->save();
+                        (new ShopCart())->dbSyn()->flush()->save();
 //                        //取出cookie中的数据
-                       $cart=(new ShopCart())->get();
+//                        $cart=(new ShopCart())->get();
 //                        //当前用户
-                        $userId=\Yii::$app->user->id;
-                        foreach ($cart as $goodId=>$num){
-//                          //判断当前用户当前商品有没有存在
-                      $cartDb=Cart::findOne(['goods_id'=>$goodId,'member_id'=>$userId]);
+//                        $userId=\Yii::$app->user->id;
+//                        foreach ($cart as $goodId=>$num){
+//                            //判断当前用户当前商品有没有存在
+//                            $cartDb=Cart::findOne(['goods_id'=>$goodId,'user_id'=>$userId]);
 //                            //判断
-                        if($cartDb){
-                              $cartDb->amount+=$num;
-                           }else{
+//                            if($cartDb){
+//                                $cartDb->num+=$num;
+//                            }else{
 //                                //创建对象
-                           $cartDb=new Cart();
+//                                $cartDb=new Cart();
 //                                //赋值
-                              $cartDb->goods_id=$goodId;
-                             $cartDb->amount=$num;
-                             $cartDb->member_id=$userId;
-                         }
+//                                $cartDb->goods_id=$goodId;
+//                                $cartDb->num=$num;
+//                                $cartDb->user_id=$userId;
+//                            }
 //                            //保存
-                          $cartDb->save();
+//                            $cartDb->save();
 //                            //清空本地Cookie中的数据
 //
 //                        }

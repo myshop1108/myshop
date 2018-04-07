@@ -68,18 +68,18 @@ class ShopCart extends Component
         $userId=\Yii::$app->user->id;
         foreach ($this->cart as $goodsId=>$num){
             //判断当前商户存不存在
-            $cartDb=Cart::findOne(['goods_id'=>$goodsId,'member_id'=>$userId]);
+            $cartDb=Cart::findOne(['goods_id'=>$goodsId,'user_id'=>$userId]);
             //判断
             if ($cartDb){
                 //+ 修改操作
-                $cartDb->amount+=$num;
+                $cartDb->num+=$num;
                 // $cart->save();
             }else{
                 //创建对象
                 $cartDb=new Cart();
                 //赋值
                 $cartDb->goods_id=$goodsId;
-                $cartDb->amount=$num;
+                $cartDb->num=$num;
                 $cartDb->member_id=$userId;
             }
             //保存
