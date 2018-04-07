@@ -104,8 +104,9 @@ include Yii::getAlias('@app')."/views/common/nav.php";
 				<div class="pay_select">
 					<table>
                         <?php foreach ($payTypes as $k=>$paytype):?>
+
 						<tr class="<?=$k?"":"cur"?>">
-							<td class="col1"><input type="radio" name="pay" <?=$k==0?"checked":"" ?> value="<?=$paytype->id?>"/><?=$paytype->name?></td>
+							<td class="col1"><input type="radio" name="pay" <?=$k==1?"checked":"" ?> value="<?=$paytype->id?>"/><?=$paytype->name?></td>
 							<td class="col2"><?=$paytype->intro?></td>
 						</tr>
                         <?php endforeach;?>

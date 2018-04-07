@@ -18,7 +18,7 @@ use Yii;
  */
 class OrderDetail extends \yii\db\ActiveRecord
 {
-
+public $amount;
     public function attributeLabels()
     {
         return [

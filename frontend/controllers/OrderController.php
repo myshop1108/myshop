@@ -72,7 +72,7 @@ class OrderController extends \yii\web\Controller
 
                 //取出配送方式
                 $payTypeId=$request->post('pay');
-                $payType=PayType::findOne($deliveryId);
+                $payType=PayType::findOne($payTypeId);
                 //给order赋值
                 $order->user_id=$userID;
                 //收集信息
@@ -90,6 +90,7 @@ class OrderController extends \yii\web\Controller
 //            var_dump(111);exit;
                 $order->pay_type_id=$payTypeId;//支付方式ID
                 $order->pay_ment=$payType->name;//支付方式名称
+//                var_dump($payType->name);exit;
                 //订单总价
                 $order->price=$shopPrice+$delivery->price;
                 //订单状态
@@ -118,6 +119,7 @@ class OrderController extends \yii\web\Controller
                         //判断当前商品库存够不够
                         $orderDetail=new OrderDetail();
                         $orderDetail->order_id=$order->id;
+
                         $orderDetail->goods_id=$good->id;
                         $orderDetail->amount=$cart[$good->id];
                         $orderDetail->goods_name=$good->name;
