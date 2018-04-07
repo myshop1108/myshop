@@ -49,6 +49,7 @@
 		<div class="login_bd">
 			<div class="login_form fl">
 				<form action="" method="post" id="login">
+                    <input type="hidden" name="_csrf-frontend" value="<?= Yii::$app->request->csrfToken?>">
 					<ul>
 						<li>
 							<label for="">用户名：</label>
