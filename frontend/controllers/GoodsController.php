@@ -58,20 +58,20 @@ class GoodsController extends \yii\web\Controller
             //当前用户
             $userId=\Yii::$app->user->id;
             //判断当前用户有没有商品存在
-            $cart=Cart::findOne(['goods_id'=>$id,'member_id'=>$userId]);
+            $cart=Cart::findOne(['goods_id'=>$id,'user_id'=>$userId]);
 //            var_dump($cart);exit;
             //判断
             if($cart){
                 //修改操作
-                $cart->amount+=$amount;
+                $cart->num+=$amount;
             }else{
                 //创建对象
                 //创建对象
                 $cart=new Cart();
                 //赋值
                 $cart->goods_id=$id;
-                $cart->amount=$amount;
-                $cart->member_id=$userId;
+                $cart->num=$amount;
+                $cart->user_id=$userId;
             }
             //保存
             $cart->save();
@@ -97,9 +97,9 @@ class GoodsController extends \yii\web\Controller
         }else{
 //            var_dump(1111);exit;
 //从cookie中取出购物车数据
-            $cart=Cart::find()->where(['member_id'=>\Yii::$app->user->id])->all();
+            $cart=Cart::find()->where(['user_id'=>\Yii::$app->user->id])->all();
             //二维数组转换为一维数组
-            $cart=ArrayHelper::map($cart,'goods_id','amount');
+            $cart=ArrayHelper::map($cart,'goods_id','num');
 //            var_dump($cart);exit;
             $goodsId=array_keys($cart);
             //取购物车中所有商品

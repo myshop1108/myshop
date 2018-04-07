@@ -33,9 +33,9 @@ class OrderController extends \yii\web\Controller
         //支付方式
         $payTypes=PayType::find()->all();
         //取出商品
-        $cart=Cart::find()->where(['member_id'=>\Yii::$app->user->id])->asArray()->all();
+        $cart=Cart::find()->where(['user_id'=>\Yii::$app->user->id])->asArray()->all();
         //把二维数组提取成一维数组 【‘商品Id’=》商品数量,...】
-        $cart=ArrayHelper::map($cart,'goods_id','amount');//[5=>3,1=>1]
+        $cart=ArrayHelper::map($cart,'goods_id','num');//[5=>3,1=>1]
         //var_dump($cart);exit;
         //取出$cart中的所有key值
         $goodIds = array_keys($cart);
@@ -116,11 +116,11 @@ class OrderController extends \yii\web\Controller
                         $orderDetail=new OrderDetail();
                         $orderDetail->order_id=$order->id;
                         $orderDetail->goods_id=$good->id;
-                        $orderDetail->amount=$cart[$good->id];
+                        $orderDetail->num=$cart[$good->id];
                         $orderDetail->goods_name=$good->name;
                         $orderDetail->logo=$good->logo;
                         $orderDetail->price=$good->shop_price;
-                        $orderDetail->total_price=$good->shop_price*$orderDetail->amount;
+                        $orderDetail->total_price=$good->shop_price*$orderDetail->num;
                         //保存数据
                         if ($orderDetail->save()) {
                             //把当前商品库存减掉
@@ -131,13 +131,13 @@ class OrderController extends \yii\web\Controller
                     }
                 }
                 //清空购物车
-                Cart::deleteAll(['member_id'=>$userID]);
+                Cart::deleteAll([''=>$userID]);
 //                exit(111111111);
                 $transaction->commit();//提交事务
                return Json::encode([
                    'status'=>1,
                    'msg'=>'订单提交成功',
-                   'member_id'=>$order->id
+                   'user_id'=>$order->id
                ]);
             } catch(Exception $e) {
 
