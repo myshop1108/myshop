@@ -25,13 +25,6 @@ class Delivey extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
-        return [
-            [['price'], 'number'],
-            [['name', 'intro'], 'string', 'max' => 255],
-        ];
-    }
 
     /**
      * @inheritdoc

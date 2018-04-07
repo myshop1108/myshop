@@ -63,12 +63,16 @@ class ShopCart extends Component
     public function get(){
         return $this->cart;
     }
+    //数据库同步操作
     public function dbSyn(){
+        //1. 取出cookie中的数据  [1=>2,5=>1]
+        //  var_dump($cart);exit;
+        //2.把数据同步到数据库中
         //当前用户
         $userId=\Yii::$app->user->id;
-        foreach ($this->cart as $goodsId=>$num){
-            //判断当前商户存不存在
-            $cartDb=Cart::findOne(['goods_id'=>$goodsId,'user_id'=>$userId]);
+        foreach ($this->cart as $goodId=>$num){
+            //判断当前用户当前商品有没有存在
+            $cartDb=Cart::findOne(['goods_id'=>$goodId,'user_id'=>$userId]);
             //判断
             if ($cartDb){
                 //+ 修改操作
@@ -78,7 +82,7 @@ class ShopCart extends Component
                 //创建对象
                 $cartDb=new Cart();
                 //赋值
-                $cartDb->goods_id=$goodsId;
+                $cartDb->goods_id=$goodId;
                 $cartDb->num=$num;
                 $cartDb->user_id=$userId;
             }
@@ -87,6 +91,7 @@ class ShopCart extends Component
         }
         return $this;
     }
+
     public function save(){
         //1.创建设置COokie对象
         $setCookie = \Yii::$app->response->cookies;

@@ -219,11 +219,11 @@ include Yii::getAlias('@app')."/views/common/nav.php";
         });
         //提交订单
         $("#sub_btn").click(function () {
-//            console.log(111111111);
+           // console.log(111111111);
             //提交数据
             $.post('/order/index',$("form").serialize(),function (data) {
                 if(data.status==1){
-                    window.location.href="/order/list?id="+data.member_id;
+                    window.location.href="/order/list?id="+data.user_id;
                     console.log(data.msg)
                 }
                 if(data.status==0){

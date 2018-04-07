@@ -98,12 +98,15 @@ class OrderController extends \yii\web\Controller
                 $order->trade_no=date("ymdHis").rand(1000,9999);
 //                var_dump($order->trade_no);exit;
                 $order->created_time=time();
+
 //            var_dump($goods);exit;
                 //保存数据
                 if($order->save()){
+
 //                    var_dump($order->trade_no);exit;
                     //循环商品，找出商品详情页
                     //找出当前商品
+                    foreach ($goods as $good){
                     $curGood=Goods::findOne($good->id);
                     //判断库存
                     if($cart[$good->id]>$curGood->stock){
@@ -111,16 +114,16 @@ class OrderController extends \yii\web\Controller
                         //抛出异常
                         throw new Exception('库存不足');
                     }
-                    foreach ($goods as $good){
+
                         //判断当前商品库存够不够
                         $orderDetail=new OrderDetail();
                         $orderDetail->order_id=$order->id;
                         $orderDetail->goods_id=$good->id;
-                        $orderDetail->num=$cart[$good->id];
+                        $orderDetail->amount=$cart[$good->id];
                         $orderDetail->goods_name=$good->name;
                         $orderDetail->logo=$good->logo;
                         $orderDetail->price=$good->shop_price;
-                        $orderDetail->total_price=$good->shop_price*$orderDetail->num;
+                        $orderDetail->total_price=$good->shop_price*$orderDetail->amount;
                         //保存数据
                         if ($orderDetail->save()) {
                             //把当前商品库存减掉
@@ -131,8 +134,8 @@ class OrderController extends \yii\web\Controller
                     }
                 }
                 //清空购物车
-                Cart::deleteAll([''=>$userID]);
-//                exit(111111111);
+                Cart::deleteAll(['user_id'=>$userID]);
+//                exit(111111111);u
                 $transaction->commit();//提交事务
                return Json::encode([
                    'status'=>1,
