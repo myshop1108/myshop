@@ -84,7 +84,7 @@ class ShopCart extends Component
                 //赋值
                 $cartDb->goods_id=$goodId;
                 $cartDb->num=$num;
-                $cartDb->user_id=$userId;
+                $cartDb->member_id=$userId;
             }
             //保存
             $cartDb->save();
