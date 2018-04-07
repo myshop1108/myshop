@@ -72,14 +72,14 @@ class ShopCart extends Component
             //判断
             if ($cartDb){
                 //+ 修改操作
-                $cartDb->member_id+=$num;
+                $cartDb->amount+=$num;
                 // $cart->save();
             }else{
                 //创建对象
                 $cartDb=new Cart();
                 //赋值
-                $cartDb->goods_id=$goodId;
-                $cartDb->member_id=$num;
+                $cartDb->goods_id=$goodsId;
+                $cartDb->amount=$num;
                 $cartDb->user_id=$userId;
             }
             //保存
