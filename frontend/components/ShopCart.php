@@ -51,7 +51,7 @@ class ShopCart extends Component
         return $this;
     }
     //改
-    public function update(){
+    public function update($id,$num){
         //修改对应的数据
         if ($this->cart[$id]){
             $this->cart[$id] = $num;
@@ -72,14 +72,14 @@ class ShopCart extends Component
             //判断
             if ($cartDb){
                 //+ 修改操作
-                $cartDb->num+=$num;
+                $cartDb->member_id+=$num;
                 // $cart->save();
             }else{
                 //创建对象
                 $cartDb=new Cart();
                 //赋值
                 $cartDb->goods_id=$goodId;
-                $cartDb->num=$num;
+                $cartDb->member_id=$num;
                 $cartDb->user_id=$userId;
             }
             //保存
